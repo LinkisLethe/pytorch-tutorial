@@ -8,6 +8,7 @@ from torch.nn import Conv2d
 from torch.utils.data import DataLoader
 from torch.utils.tensorboard import SummaryWriter
 
+# ".." 表示返回上一级目录
 dataset = torchvision.datasets.CIFAR10("../data", train=False, transform=torchvision.transforms.ToTensor(),
                                        download=True)
 dataloader = DataLoader(dataset, batch_size=64)
@@ -35,6 +36,7 @@ for data in dataloader:
     writer.add_images("input", imgs, step)
     # torch.Size([64, 6, 30, 30])  -> [xxx, 3, 30, 30]
 
+    # 维度不确定时可以写 -1，PyTorch 会根据其他维度自动计算
     output = torch.reshape(output, (-1, 3, 30, 30))
     writer.add_images("output", output, step)
 

@@ -23,6 +23,7 @@ class MyData(Dataset):
         self.image_list.sort()
         self.label_list.sort()
 
+    # 读取一个样本
     def __getitem__(self, idx):
         img_name = self.image_list[idx]
         label_name = self.label_list[idx]
@@ -30,11 +31,13 @@ class MyData(Dataset):
         label_item_path = os.path.join(self.root_dir, self.label_dir, label_name)
         img = Image.open(img_item_path)
 
+        # with 会在读取后关闭文件；标签位于文件第一行
         with open(label_item_path, 'r') as f:
             label = f.readline()
 
         # img = np.array(img)
         img = self.transform(img)
+        # 将图像和标签组合为一个字典
         sample = {'img': img, 'label': label}
         return sample
 
@@ -43,11 +46,13 @@ class MyData(Dataset):
         return len(self.image_list)
 
 if __name__ == '__main__':
+    # 先缩放图像，再转换为 Tensor
     transform = transforms.Compose([transforms.Resize((256, 256)), transforms.ToTensor()])
     root_dir = "dataset/train"
     image_ants = "ants_image"
     label_ants = "ants_label"
     ants_dataset = MyData(root_dir, image_ants, label_ants, transform)
+    # 再创建蜜蜂类别的数据集
     image_bees = "bees_image"
     label_bees = "bees_label"
     bees_dataset = MyData(root_dir, image_bees, label_bees, transform)

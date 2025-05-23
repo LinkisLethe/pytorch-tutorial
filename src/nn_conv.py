@@ -15,6 +15,7 @@ kernel = torch.tensor([[1, 2, 1],
                        [0, 1, 0],
                        [2, 1, 0]])
 
+# 调整为 Conv2d 需要的输入格式
 input = torch.reshape(input, (1, 1, 5, 5))
 kernel = torch.reshape(kernel, (1, 1, 3, 3))
 
