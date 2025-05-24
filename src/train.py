@@ -67,6 +67,7 @@ for i in range(epoch):
 
         total_train_step = total_train_step + 1
         if total_train_step % 100 == 0:
+            #loss.item() 相较于 loss, 是更正规的写法
             print("训练次数：{}, Loss: {}".format(total_train_step, loss.item()))
             writer.add_scalar("train_loss", loss.item(), total_train_step)
 

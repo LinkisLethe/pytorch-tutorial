@@ -10,6 +10,7 @@ from torch.utils.tensorboard import SummaryWriter
 class Tudui(nn.Module):
     def __init__(self):
         super(Tudui, self).__init__()
+        #顺序执行, 用sequential()函数
         self.model1 = Sequential(
             Conv2d(3, 32, 5, padding=2),
             MaxPool2d(2),
@@ -28,6 +29,8 @@ class Tudui(nn.Module):
 
 tudui = Tudui()
 print(tudui)
+
+# 用于检查报错情况
 input = torch.ones((64, 3, 32, 32))
 output = tudui(input)
 print(output.shape)
