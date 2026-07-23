@@ -1,4 +1,30 @@
-/.idea
-/logs
-/data
-/logs_*
+# Python 虚拟环境
+.venv/
+venv/
+env/
+
+# Python 缓存
+__pycache__/
+*.py[cod]
+
+# Jupyter 临时文件
+.ipynb_checkpoints/
+
+# 训练过程产生的日志与输出
+runs/
+logs/
+*.log
+
+# 训练得到的模型权重与导出模型
+*.pt
+*.pth
+*.ckpt
+*.onnx
+
+# 下载包、压缩包和系统临时文件
+*.zip
+*.tar
+*.tar.gz
+*.rar
+.DS_Store
+Thumbs.db

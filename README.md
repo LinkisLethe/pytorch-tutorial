@@ -40,5 +40,9 @@
 
 ![](https://ae01.alicdn.com/kf/H20c6f97f5b1540cabe93eb3d55f17bcdw.jpg)
 
+## 学习记录
+
+这个仓库基于[小土堆的 PyTorch 教程](https://github.com/xiaotudui/pytorch-tutorial)。原始教程、示例代码及素材归原作者所有；我在学习过程中补充了代码注释、运行配置和个人笔记。
+
 
 
