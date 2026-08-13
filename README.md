@@ -1,48 +1,45 @@
-# Pytorch教程
+# PyTorch tutorial study notes
 
-相信尝试找到此教程的你，已经知道 PyTorch 的用途。
+[English](README.md) | [简体中文](README.zh-CN.md)
 
-找到此教程的你，也许跟我一样，尝试过各种教程，官方的教程文档，各色的视频，但发现都不是很友好。
+[![Python](https://img.shields.io/badge/Python-3.x-3776AB?logo=python&logoColor=white&style=flat-square)](https://www.python.org/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.13-EE4C2C?logo=pytorch&logoColor=white&style=flat-square)](https://pytorch.org/)
+[![torchvision](https://img.shields.io/badge/torchvision-0.28-7B61FF?style=flat-square)](https://pytorch.org/vision/stable/)
 
-深知此感受的我，尝试写下这份教程，希望能为你稍微照亮下周边的道路。
+This fork records my PyTorch and computer-vision study work based on [Xiaotudui's PyTorch tutorial](https://github.com/xiaotudui/pytorch-tutorial). The original examples and teaching assets remain attributed to the upstream author. My additions include study notes, a pinned environment snapshot, comments, and small portability updates to selected scripts.
 
----
+## Study coverage
 
-## 零：如何使用
+- tensors, datasets, transforms, `DataLoader`, and TensorBoard;
+- common `nn.Module` layers, loss functions, optimizers, and model persistence;
+- CIFAR-10 training and inference examples for CPU and GPU;
+- personal notes on OpenCV, convolution, classification, and basic neural-network concepts.
 
-本系列教程，致力于打造成为通俗易懂的教程。所以课程安排的思路也是比较特点，相信一定能让你快速入门。
+The two main note files are:
 
-本文提供视频版（已完结）。（欢迎各位 Fork 和 Star）
+- [`notes/2026-07-21-25-computer-vision.md`](notes/2026-07-21-25-computer-vision.md)
+- [`notes/2026-07-23-deep-learning.md`](notes/2026-07-23-deep-learning.md)
 
-**视频中涉及的代码均在src文件夹中。**
+## Setup and use
 
+The checked-in [`requirements.txt`](requirements.txt) records the CUDA 13.0 environment used for this study snapshot. Select the PyTorch build that matches your operating system and CUDA version if this exact environment is unsuitable.
 
-视频版：
+```bash
+python -m venv .venv
+python -m pip install -r requirements.txt
+python -m compileall src
+python src/nn_module.py
+```
 
-[Bilibili](https://www.bilibili.com/video/av74281036/ )
+Several examples download CIFAR-10 or expect local files such as `data/`, TensorBoard logs, and saved `.pth` models. Those generated or external artifacts are not included. Read the path constants near the top of a script before running it.
 
-[Youtube](https://www.youtube.com/playlist?list=PLgAyVnrNJ96CqYdjZ8v9YjQvCBcK5PZ-V )
+```text
+src/           Upstream tutorial examples with reviewed study edits
+notes/         Personal computer-vision and deep-learning notes
+notes/assets/  Diagrams referenced by the notes
+imgs/          Small images used by inference examples
+```
 
----
+## Source and reuse boundary
 
-
-微信公众号：【我是土堆】
-
-我的大本营，会不定期更新一些碎碎念，欢迎关注
-
-**往期推荐：**
-
-[你想过将你的人生游戏化吗？](http://mp.weixin.qq.com/s?__biz=MzIxNDEwMzg3Mw==&mid=501968679&idx=1&sn=e90c796b3bfb7d901be333cd86199e56&chksm=0fb36d0938c4e41fbac4a459907029cc1d4855fba1a172af93d2f185b7dab9bf30c51ac72d41#rd)
-
-[用游戏的思路激励自己](http://mp.weixin.qq.com/s?__biz=MzIxNDEwMzg3Mw==&mid=501968703&idx=1&sn=c1fa79d8b13ab7fae11ea0d72b80e4d3&chksm=0fb36d1138c4e407a625fea5211f50083dbdfa5dde2eb1d179e18c8de0c36e3f3eaab35377f2#rd)
-
-寻找有趣或更有效率的事、工具和教程
-
-![](https://ae01.alicdn.com/kf/H20c6f97f5b1540cabe93eb3d55f17bcdw.jpg)
-
-## 学习记录
-
-这个仓库基于[小土堆的 PyTorch 教程](https://github.com/xiaotudui/pytorch-tutorial)。原始教程、示例代码及素材归原作者所有；我在学习过程中补充了代码注释、运行配置和个人笔记。
-
-
-
+This repository is a source-derived study fork, not an original PyTorch course. Upstream code, text, and teaching assets belong to their respective author. The upstream repository does not currently publish a recognized license file, so this README does not grant additional redistribution rights for that material.
